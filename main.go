@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"golangstartup/auth"
 	"golangstartup/handler"
 	"golangstartup/user"
 	"log"
@@ -20,8 +22,11 @@ func main() {
 
 	userRepository := user.NewRepository(db)
 	userService := user.NewService(userRepository)
+	authService := auth.NewService()
 
-	userHandler := handler.NewUserHandler(userService)
+	fmt.Println(authService.GenerateToken(191))
+
+	userHandler := handler.NewUserHandler(userService, authService)
 
 	router := gin.Default()
 
