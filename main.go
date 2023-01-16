@@ -40,10 +40,6 @@ func main() {
 
 	router.Run()
 
-	// buat repo terlebih dahulu
-	// buat service
-	// buat input
-	// buat handler
 }
 
 func authMiddleWare(authService auth.Service, userServicer user.Service) gin.HandlerFunc {
